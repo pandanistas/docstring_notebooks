@@ -1,0 +1,12 @@
+name: interactive-notebooks
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - sphinx
+  - ipywidgets
+  - qgrid
+  - seaborn
+  - matplotlib
+  - pandas
+  - voila
