@@ -8,5 +8,5 @@ dependencies:
   - qgrid
   - seaborn
   - matplotlib
-  - pandas
+  - pandas==0.25.3
   - voila
