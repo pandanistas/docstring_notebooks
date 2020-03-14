@@ -3,10 +3,10 @@
 
 name: update_json
 
-# Runs the update every day, every hour
+# Runs the update every 15 minutes
 on:
   schedule:
-    - cron: "30 * * * *"
+    - cron: '*/15 * * * *'
 
 env:
   ENV_FILE: environment.yml
