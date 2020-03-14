@@ -6,7 +6,7 @@ name: update_json
 # Runs the update every hour
 on:
   schedule:
-    - cron: '0 * * * *'
+    - cron: '25 * * * *'
 
 env:
   ENV_FILE: environment.yml
@@ -29,8 +29,11 @@ jobs:
       run: ci/setup_env.sh
       if: always()
     
-    - name: Run docstring (test)
+    - name: Run validation script (test)
       run: |
         source activate pandas-dev
-        echo "$HOME"
+        python ./scripts/validate_docstrings.py --format=json > ~/pandas_docstring_errors.json
+        
+    - name: Print json
+      run: cat ~/pandas_docstring_errors.json
 
