@@ -3,10 +3,10 @@
 
 name: update_json
 
-# Runs the update every 15 minutes
+# Runs the update every hour
 on:
   schedule:
-    - cron: '*/15 * * * *'
+    - cron: '0 * * * *'
 
 env:
   ENV_FILE: environment.yml
@@ -20,7 +20,7 @@ jobs:
     - name: Setting conda path
       run: echo "::add-path::${HOME}/miniconda3/bin"
       
-    - name: Chekout
+    - name: Chekout pandas-dev
       uses: actions/checkout@v2
       with:
         repository: pandas-dev/pandas
@@ -32,5 +32,5 @@ jobs:
     - name: Run docstring (test)
       run: |
         source activate pandas-dev
-        python scripts/validate_docstrings.py pandas.DataFrame.mean
+        echo "$HOME"
 
