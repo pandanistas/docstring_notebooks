@@ -6,7 +6,7 @@ name: update_json
 # Runs the update every hour
 on:
   schedule:
-    - cron: '3 * * * *'
+    - cron: '23 * * * *'
 
 env:
   ENV_FILE: environment.yml
@@ -44,7 +44,7 @@ jobs:
       run: | 
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git commit -m "Update JSON" 
+        git commit -m "Update JSON" -a
 
     - name: Push changes
       uses: ad-m/github-push-action@master
