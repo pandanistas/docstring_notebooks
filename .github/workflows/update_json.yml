@@ -6,13 +6,14 @@ name: update_json
 # Runs the update every hour
 on:
   schedule:
-    - cron: '23 * * * *'
+    - cron: '0 * * * *'
 
 env:
   ENV_FILE: environment.yml
 
 jobs:
   update_errors:
+    if: github.repository == 'pandanistas/docstring_notebooks'  # run only in main repo
     runs-on: ubuntu-latest
 
     steps:
